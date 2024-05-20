@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href=" "> <!--logo en la pestaña-->
+    <title>Indicadores de salud bucal</title>
+    <link rel="stylesheet" href="registro-clinicoD.css">
+    <script src="registro-clinicoD.js"></script>
+    <style>
+        /* Estilos para la barra de navegación */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html">Inicio</a>
+        <a href="visitar-ver.html">Visualizar paciente</a>
+        <!--a href="registro-clinico.html">Registro clinico</a-->
+        <a href="registro-tratamiento.html">Registro tratamiento</a>
+    </div>
+    <form id="datosPaciente">
+        <h1>Registro Clínico</h1>
+        <h2>Indicadores de salud bucal</h2>
+            <!----> 
+            <h4>Higiene oral:</h4>
+        <div class="higiene-oral">
+            <label for="placa">Placa
+                <input type="number" id="placa" name="placa">
+            </label>
+            <label for="calculo">Calculo
+                <input type="number" id="calculo" name="calculo">
+            </label>
+            <label for="gingivitis">Gingivitis
+                <input type="number" id="gingivitis" name="gingivitis">
+            </label>
+        </div>
+
+            <h4>Enfermedad Periodontal:</h4>
+            <label for="periodontitisL"><input type="radio" id="periodontitisL" name="periodontitisL" class="Periodontal" onchange="limitarSeleccionPeriodontal(this)">
+            LEVE</label>
+            <label for="periodontitisM"><input type="radio" id="periodontitisM" name="periodontitisM" class="Periodontal" onchange="limitarSeleccionPeriodontal(this)">
+            MODERADA</label>
+            <label for="periodontitisA"><input type="radio" id="periodontitisA" name="periodontitisA" class="Periodontal" onchange="limitarSeleccionPeriodontal(this)">
+            SEVERA</label><br>
+
+            <h4>Mal oclusion:</h4>
+            <label for="angleI"><input type="radio" id="angleI" name="angleI" class="Oclusion" onchange="limitarSeleccionOclusion(this)">
+            ANGLE I</label>
+            <label for="angleII"><input type="radio" id="angleII" name="angleII" class="Oclusion" onchange="limitarSeleccionOclusion(this)">
+            ANGLE II</label>
+            <label for="angleIII"><input type="radio" id="angleIII" name="angleIII" class="Oclusion" onchange="limitarSeleccionOclusion(this)">
+            ANGLE III</label>
+
+            <h4>Flúorosis:</h4>
+            <label for="leve"><input type="radio" id="leve" name="leve" class="Fluor" onchange="limitarSeleccionFluor(this)">
+            LEVE</label>
+            <label for="moderada"><input type="radio" id="moderada" name="moderada" class="Fluor" onchange="limitarSeleccionFluor(this)">
+            MODERADA</label>
+            <label for="severa"><input type="radio" id="severa" name="severa" class="Fluor" onchange="limitarSeleccionFluor(this)">
+            SEVERA</label>
+        
+            <h4>Índice de CPO-ceo:</h4>
+            <label for="c">Número de dientes afectados por caries (C):
+                <input type="number" id="c" name="c" required></label>
+            <label for="p">Número de dientes perdidos debido a caries (P):
+                <input type="number" id="p" name="p" required></label>
+            <label for="o">Número de dientes con restauraciones (O):
+                <input type="number" id="o" name="o" required></label>
+
+        <!--input type="submit" value="Guardar Consulta"-->
+        <button type="submit" onclick="guardarDatos()"id="btn">Guardar Odontograma</button>
+    </form>
+</body>
+</html>

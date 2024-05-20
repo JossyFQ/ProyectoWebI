@@ -35,10 +35,10 @@ input[type="text"],
 input[type="number"],
 textarea {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 10px;
     border: 1px solid blueviolet;
-    border-radius: 15px;
+    border-radius: 10px;
 }input[type="number"]{
     width: 50px;
     margin-left: 5px;
@@ -50,10 +50,10 @@ input.id{
 /* Estilo para el elemento select */
 select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 10px;
     border: 1px solid blueviolet;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #fff;
     font-size: 16px;
     color: #333;
