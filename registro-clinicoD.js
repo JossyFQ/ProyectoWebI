@@ -1,20 +1,4 @@
 //limitacion de seleccion
-function limitarSeleccionMovilidad(checkbox) {
-    const checkboxes = document.querySelectorAll('.movilidad');
-    let alMenosUnaSeleccionada = false;
-
-    checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-            cb.checked = false;
-        }
-    });
-    //verifica la seleccion
-    /*if (checkbox.checked) {
-        alert("¡Grado seleccionado con éxito!");
-    } else {
-        alert("Por favor, seleccione un grado de movilidad.");
-    }*/
-}
 function limitarSeleccionFluor(checkbox) {
     const checkboxes = document.querySelectorAll('.Fluor');
     checkboxes.forEach((cb) => {
@@ -23,24 +7,8 @@ function limitarSeleccionFluor(checkbox) {
         }
     });
 }
-function limitarSeleccionDentrifico(checkbox) {
-    const checkboxes = document.querySelectorAll('.Dentrifico');
-    checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-            cb.checked = false;
-        }
-    });
-}
-function limitarSeleccionColutorios(checkbox) {
-    const checkboxes = document.querySelectorAll('.Colutorios');
-    checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-            cb.checked = false;
-        }
-    });
-}
-function limitarSeleccionPlaca(checkbox) {
-    const checkboxes = document.querySelectorAll('.Placa');
+function limitarSeleccionOclusion(checkbox) {
+    const checkboxes = document.querySelectorAll('.Oclusion');
     checkboxes.forEach((cb) => {
         if (cb !== checkbox) {
             cb.checked = false;
@@ -59,23 +27,17 @@ function limitarSeleccionPeriodontal(checkbox) {
 //verifica la selecciones y ve cuales se marcaron
 function guardarDatos() {
     // Recopilar los valores de los campos del formulario
-    var movilidad = document.querySelector('input[name="grado"]:checked, input[name="grado1"]:checked, input[name="grado2"]:checked, input[name="grado3"]:checked');
-    var fluor = document.querySelector('input[name^="nivel0"]:checked, input[name^="nivel1"]:checked, input[name^="nivel2"]:checked, input[name^="nivel3"]:checked, input[name^="nivel4"]:checked');
-    var dentrifico = document.querySelector('input[name^="dColgate"]:checked, input[name^="dOral"]:checked, input[name^="dSensdyne"]:checked, input[name^="dLPolo"]:checked, input[name^="dLacer"]:checked, input[name^="dBinaca"]:checked, input[name^="dSignal"]:checked, input[name^="dOtro"]:checked');
-    var colutorio = document.querySelector('input[name^="cLacer"]:checked, input[name^="cListerine"]:checked, input[name^="cDeliplus"]:checked, input[name^="cColgate"]:checked, input[name^="cKin"]:checked, input[name^="cAuchan"]:checked, input[name^="cOtro"]:checked');
-    var placa = document.querySelector('input[name^="placa"]:checked, input[name^="sarro"]:checked, input[name^="calculo"]:checked');
-    var periodontal = document.querySelector('input[name^="sano"]:checked, input[name^="gingivitis"]:checked, input[name^="ePeriodontal"]:checked, input[name^="periodontitisL"]:checked, input[name^="periodontitisM"]:checked, input[name^="periodontitisA"]:checked');
+    var fluor = document.querySelector('input[name^="leve"]:checked, input[name^="moderada"]:checked, input[name^="severa"]:checked');
+    var oclusion = document.querySelector('input[name^="angleI"]:checked, input[name^="angleII"]:checked, input[name^="angleIII"]:checked');
+    var periodontal = document.querySelector('input[name^="periodontitisL"]:checked, input[name^="periodontitisM"]:checked, input[name^="periodontitisA"]:checked');
     // Comprobar si se han completado todos los campos obligatorios
-    if (!movilidad || !fluor || !dentrifico || !colutorio || !placa || !periodontal) {
+    if (!fluor || !oclusion || !periodontal) {
         alert('Por favor, completa todos los campos obligatorios.');
         return false; // Detener la ejecución de la función si faltan campos obligatorios
     }
     var datos = {
-        movilidad: movilidad.value,
         fluor: fluor.value,
-        dentrifico: dentrifico.value,
-        colutorio: colutorio.value,
-        placa: placa.value,
+        oclusion: oclusion.value,
         periodontal: periodontal.value
     };
     //verifica los numeros de los marcados

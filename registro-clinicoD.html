@@ -38,7 +38,7 @@
         <!--a href="registro-clinico.html">Registro clinico</a-->
         <a href="registro-tratamiento.html">Registro tratamiento</a>
     </div>
-    <form id="datosPaciente">
+    <form id="datosPaciente" action="visitar-ver.html">
         <h1>Registro Clínico</h1>
         <h2>Indicadores de salud bucal</h2>
             <!----> 
@@ -81,11 +81,11 @@
         
             <h4>Índice de CPO-ceo:</h4>
             <label for="c">Número de dientes afectados por caries (C):
-                <input type="number" id="c" name="c" required></label>
+                <input type="number" id="c" name="c"></label>
             <label for="p">Número de dientes perdidos debido a caries (P):
-                <input type="number" id="p" name="p" required></label>
+                <input type="number" id="p" name="p"></label>
             <label for="o">Número de dientes con restauraciones (O):
-                <input type="number" id="o" name="o" required></label>
+                <input type="number" id="o" name="o"></label>
 
         <!--input type="submit" value="Guardar Consulta"-->
         <button type="submit" onclick="guardarDatos()"id="btn">Guardar Odontograma</button>
