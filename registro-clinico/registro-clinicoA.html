@@ -54,6 +54,7 @@
         <a href="registro-clinicoA.html" class="barra2">Datos del paciente</a>
         <a href="registro-clinicoC.html" class="barra2">Odontograma</a>
         <a href="registro-clinicoD.html" class="barra2">Indicadores de salud bucal</a>
+        <a href="registro-clinicoE.html" class="barra2">Diagnostico</a>
     </div>
     <form id="datosPaciente" action="registro-clinico/registro-clinicoB.html">
         <h1>Registro Clínico</h1>
@@ -65,12 +66,12 @@
         <input type="text" id="nombre" name="nombre" required>
         <label for="edad">Edad:
         <input type="number" id="edad" name="edad" required></label>
-        <label for="sexo">Sexo:</label>
+        <label for="sexo">Genero:</label>
         <select id="sexo" name="sexo" required>
             <option value=" " disabled selected>Selecione género</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
-            <option value="femenino">Otro</option>
+            <option value="otro">Otro</option>
         </select>
         <!--label for="contactoPaciente">Contacto del paciente:</label>
         <input type="number" id="contactoPaciente" name="contactoPaciente"><br-->
@@ -84,6 +85,10 @@
         <!--textarea id="antecedentePersonales" name="antecedentePersonales" rows="4" cols="50" required></textarea-->
         <label for="antecedenteMedico">Antecedente medico:</label>
         <input type="text" id="antecedenteMedico" name="antecedenteMedico" class="antecedenteMedico" required>
+        <label for="signoVital">Signos vitales:</label>
+        <input type="text" id="signoVital" name="signoVital" class="signoVital" required>
+        <label for="eEstomatognatico">Examen del sistema Estomatognatico:</label>
+        <input type="text" id="eEstomatognatico" name="eEstomatognatico" class="eEstomatognatico" required>
         <!--input type="submit" value="Guardar Consulta"-->
         <button type="submit" onclick="guardarDatos()">Guardar Paciente</button>
     </form>
