@@ -19,3 +19,8 @@ function inicio() {
     return true;
 
 }
+
+function registrar() {
+    window.location.href = '../registro-usuario/registro-usuario.html';
+}
+
