@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circunferencia dividida en 4 partes</title>
+<style>
+  /*la circunferencia grande*/
+  .circle {
+    width: 50px;
+    height: 50px;
+/*  background-color: #f00; /* Color de la circunferencia */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(45deg);
+    border: 2px solid #000;/* Color del borde negro */
+    margin: 1px; /* Añadido para espacio entre círculos */
+    display: inline-block; /* Para colocar los círculos en línea */
+  }
+  /*la circunferencia pequeña*/
+  .circle-smile {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000;/* Color del borde negro */
+  }
+  /*el triangulo*/
+  .slice {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    clip-path: polygon(50% 50%, 0 0, 100% 0);
+    transform-origin: center;
+  }
+  .slice:nth-child(1) {
+    transform: rotate(45deg);
+    top: calc(50% -1px);
+  }
+  .slice:nth-child(2) {
+    transform: rotate(135deg);
+    top: calc(50% -1px);
+  }
+  .slice:nth-child(3) {
+    transform: rotate(-45deg);
+    top: calc(50% -1px);
+  }
+  .slice:nth-child(4) {
+    transform: rotate(-135deg);
+    top: calc(50% -1px);
+  }
+  /*las lineas*/
+  .line {
+    position: absolute;
+    width: 120%; /* Ajustar la longitud para que alcance el borde del círculo grande */
+    height: 2px;
+    background-color: #000; /* Color negro */
+    transform-origin: center;
+    border: 2px solid #000;/* Color del borde negro */
+  }
+  .line:nth-child(1) {
+    transform: rotate(45deg);
+    top: calc(50% - 1px); /* Ajustar la posición vertical */
+    left: -10%; /* Mover la línea un poco hacia afuera para que alcance el borde del círculo */
+  }
+  .line:nth-child(2) {
+    transform: rotate(135deg);
+    top: calc(50% - 1px); /* Ajustar la posición vertical */
+    left: -10%; /* Mover la línea un poco hacia afuera para que alcance el borde del círculo */
+  }
+  .line:nth-child(3) {
+    transform: rotate(-45deg);
+    top: calc(50% - 1px); /* Ajustar la posición vertical */
+    left: -10%; /* Mover la línea un poco hacia afuera para que alcance el borde del círculo */
+  }
+  .line:nth-child(4) {
+    transform: rotate(-135deg);
+    top: calc(50% - 1px); /* Ajustar la posición vertical */
+    left: -10%; /* Mover la línea un poco hacia afuera para que alcance el borde del círculo */
+  }
+  /*estilos para las filas y columnas*/
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  /*.column {
+    flex: 1 0 6.25%; /* 1 de 16 columnas*//* 
+  }*/
+  
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Aquí empieza la segunda fila -->
+  <div class="row">
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="circle">
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="slice" onclick="marcarDiente(this)"><div class="line"></div></div>
+        <div class="circle-smile" onclick="marcarDiente(this)"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var colores = ["blue", "white", "red"]; // Array con los colores en la secuencia: azul claro, blanco, rojo
+  var indiceColor = 0; // Índice para rastrear el color actual
+
+  function marcarDiente(boya) {
+    // Cambiar el color de fondo de la boya al hacer clic
+    boya.style.backgroundColor = colores[indiceColor]; // Establece el color actual
+    // Incrementar el índice para pasar al siguiente color
+    indiceColor++;
+    // Si el índice supera el número de colores disponibles, vuelve al inicio del array
+    if (indiceColor >= colores.length) {
+      indiceColor = 0;
+    }
+  }
+</script>
+</body>
+</html>
