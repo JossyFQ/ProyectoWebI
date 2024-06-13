@@ -43,7 +43,11 @@ textarea {
     width: 50px;
     margin-left: 5px;
 }
-input.id{
+input.id, 
+input.pArterial, 
+input.fCardiaca, 
+input.tCorporal,
+input.fRespiratoria{
     width: 40%;
     margin-left: 5px;
 }
